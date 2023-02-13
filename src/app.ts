@@ -1,9 +1,11 @@
 import express from 'express';
-import sendNewProduct from './controllers/products.controller';
+import { sendNewProduct, showAllProducts } from './controllers/products.controller';
 
 const app = express();
 
 app.use(express.json());
+
+app.get('/products', showAllProducts);
 
 app.post('/products', sendNewProduct);
 

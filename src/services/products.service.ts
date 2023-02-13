@@ -1,8 +1,11 @@
-import insertNewProduct from '../models/products.model';
+import { insertNewProduct, findAllProducts } from '../models/products.model';
 
-const newProduct = async (product: { name: string, amount: string }) => {
-  const [result] = await insertNewProduct(product);
+export const allProducts = async () => {
+  const [result] = await findAllProducts();
   return result;
 };
 
-export default newProduct;
+export const newProduct = async (product: { name: string, amount: string }) => {
+  const [result] = await insertNewProduct(product);
+  return result;
+};
